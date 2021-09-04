@@ -36,7 +36,7 @@ function test(req, res) {
     }
 }
 
-export default connectDB(test)
+export default test
 // export default function handler(req, res) {
 //     res.send('lol');
 //     if (req.method ==='POST') {
