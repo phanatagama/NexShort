@@ -1,7 +1,7 @@
 // MongoDB CONNECTION
 import middleware from 'pages/api/utils/db';
 import nextConnect from 'next-connect';
-import cors from 'cors'
+const cors = require('cors');
 import Shortener from 'pages/api/model/shortener';
 
 const handler = nextConnect();
