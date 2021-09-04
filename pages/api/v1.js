@@ -1,5 +1,5 @@
 // MongoDB CONNECTION
-import connectDB from 'pages/api/utils/db';
+import connectDB from './utils/db';
 
 function test(req, res) {
     console.log('loh');
