@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-const Book = mongoose.model('books',{
+import mongoose from 'mongoose';
+
+const Shortener = mongoose.model('shortener',{
     url: {
         type: String,
         required: true,
@@ -8,6 +9,6 @@ const Book = mongoose.model('books',{
         type: String,
         required: true,
     },
-})
+});
 
-module.exports = Book;
+module.exports = Shortener;

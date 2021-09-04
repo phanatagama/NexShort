@@ -1,8 +1,9 @@
 // MongoDB CONNECTION
-function test(req, res) {
+export default function test(req, res) {
+    console.log('loh');
     try {
         require('pages/api/utils/db');
-        const Book = require('pages/api/model/shortener');
+        const Shortener = require('pages/api/model/shortener');
         return res.status(200)
         .json({
             status: 'OK',
@@ -46,5 +47,3 @@ function test(req, res) {
 //         });
 //     }
 // }
-
-export default test;
