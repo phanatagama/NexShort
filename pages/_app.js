@@ -1,3 +1,4 @@
+require('dotenv').config();
 // import '../styles/globals.css'
 import 'tailwindcss/tailwind.css';
 
