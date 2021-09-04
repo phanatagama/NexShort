@@ -69,6 +69,8 @@ const TodoState = ({ children }) => {
 
       dispatch({ type: CLEAR_URL })
       dispatch({ type: CREATE_URL, payload: toJSON.data[0] })
+      console.log(toJSON.data[0]);
+      // console.log(shortlink)
     } catch (err) {
       console.error(err.message)
     }
