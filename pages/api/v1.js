@@ -1,12 +1,30 @@
 // MongoDB CONNECTION
 import middleware from 'pages/api/utils/db';
 import nextConnect from 'next-connect';
-const cors = require('cors');
+const Cors = require('cors');
 import Shortener from 'pages/api/model/shortener';
 
+function initMiddleware(middleware) {
+    return (req, res) =>
+      new Promise((resolve, reject) => {
+        middleware(req, res, (result) => {
+          if (result instanceof Error) {
+            return reject(result)
+          }
+          return resolve(result)
+        })
+      })
+  }
+const cors = initMiddleware(
+  // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
+  Cors({
+    // Only allow requests with GET, POST and OPTIONS
+    methods: ['GET', 'POST', 'OPTIONS'],
+  })
+)
 const handler = nextConnect();
 handler.use(middleware);
-handler.use(cors());
+// handler.use(cors());
 handler.get("/:url", (req, res) => {
     Shortener.find({path: req.param.url})
     .then(response => location.href(response.url))
@@ -20,6 +38,7 @@ handler.get("/", (req, res) => {
     })
 })
 handler.post( async (req, res) => {
+    await cors(req,res)
     await Shortener.insertMany(req.body, (error, result) => {
         if (!error) {
             return res.status(201)
