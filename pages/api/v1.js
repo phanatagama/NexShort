@@ -1,8 +1,10 @@
 // MongoDB CONNECTION
-export default function test(req, res) {
+import connectDB from 'pages/api/utils/db';
+
+function test(req, res) {
     console.log('loh');
     try {
-        require('pages/api/utils/db');
+        // require('pages/api/utils/db');
         const Shortener = require('pages/api/model/shortener');
         return res.status(200)
         .json({
@@ -18,6 +20,7 @@ export default function test(req, res) {
     }
 }
 
+export default connectDB(test);
 // export default function handler(req, res) {
 //     res.send('lol');
 //     if (req.method ==='POST') {
