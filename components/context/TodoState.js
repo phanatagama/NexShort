@@ -52,7 +52,7 @@ const TodoState = ({ children }) => {
     const { nanoid } = require('nanoid');
     const newURL = {
       url,
-      path: nanoid(10),
+      path: nanoid(4),
     }
 
     try {

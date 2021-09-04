@@ -25,7 +25,7 @@ import Shortener from 'pages/api/model/shortener';
 const handler = nextConnect();
 handler.use(middleware);
 handler.use(cors());
-handler.post( async (req, res) => {
+handler.post( async (req, res next) => {
   // await cors(req,res)
   await Shortener.insertMany(req.body, (error, result) => {
       if (!error) {
@@ -43,6 +43,7 @@ handler.post( async (req, res) => {
           data: req.body,
       })
   })
+  next();
 })
 handler.get("/:url", (req, res) => {
     Shortener.find({path: req.param.url})
