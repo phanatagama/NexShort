@@ -1,5 +1,7 @@
 // MongoDB CONNECTION
 // import connectDB from './utils/db';
+import mongoose from 'mongoose';
+
 const connectDB = handler => async (req, res) => {
     if (mongoose.connections[0].readyState) {
       // Use current db connection
@@ -16,7 +18,7 @@ const connectDB = handler => async (req, res) => {
   };
 
 function test(req, res) {
-    console.log('loh');
+    // console.log('loh');
     try {
         // require('pages/api/utils/db');
         // const Shortener = require('pages/api/model/shortener');
