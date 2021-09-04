@@ -37,10 +37,10 @@ import nextConnect from 'next-connect';
 
 const handler = nextConnect();
 handler.use(middleware);
-handler.get( (req, res) {
+handler.get( async (req, res) =>{
     if (req.method ==='POST') {
         res.send(req.body);
-        Shortener.insertMany(req.body, (error, result) => {
+        await Shortener.insertMany(req.body, (error, result) => {
             if (!error) {
                 return res.status(201)
                 .json({
