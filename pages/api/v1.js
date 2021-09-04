@@ -47,4 +47,4 @@ function test(req, res) {
 //     }
 // }
 
-exoprt default test;
+export default test;
