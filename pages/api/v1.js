@@ -5,7 +5,7 @@ function test(req, res) {
     console.log('loh');
     try {
         // require('pages/api/utils/db');
-        const Shortener = require('pages/api/model/shortener');
+        // const Shortener = require('pages/api/model/shortener');
         return res.status(200)
         .json({
             status: 'OK',
