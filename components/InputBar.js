@@ -4,9 +4,9 @@ import TodoContext from 'components/context/TodoContext';
 
 function InputBar() {
     const { URL, setURL, createURL, isSuccess } = useContext(TodoContext)
-    const onCreateShorlink = (e) => {
+    const onCreateShorlink = async (e) => {
         e.preventDefault();
-        createURL(URL);
+        await createURL(URL);
         console.log('debug 2');
         console.log(isSuccess);
     }
