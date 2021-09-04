@@ -1,5 +1,19 @@
 // MongoDB CONNECTION
-import connectDB from './utils/db';
+// import connectDB from './utils/db';
+const connectDB = handler => async (req, res) => {
+    if (mongoose.connections[0].readyState) {
+      // Use current db connection
+      return handler(req, res);
+    }
+    // Use new db connection
+    await mongoose.connect(process.env.MONGODB_URL, {
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+      useNewUrlParser: true
+    });
+    return handler(req, res);
+  };
 
 function test(req, res) {
     console.log('loh');
@@ -20,7 +34,7 @@ function test(req, res) {
     }
 }
 
-export default connectDB(test);
+export default connectDB(test)
 // export default function handler(req, res) {
 //     res.send('lol');
 //     if (req.method ==='POST') {
