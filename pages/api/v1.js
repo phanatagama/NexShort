@@ -3,6 +3,7 @@ require('pages/api/utils/db');
 const Shortener = require('pages/api/model/shortener');
 
 export default function handler(req, res) {
+    res.send('lol');
     if (req.method ==='POST') {
         res.send(req.body);
         Shortener.insertMany(req.body, (error, result) => {
