@@ -5,7 +5,12 @@ import Shortener from 'pages/api/model/shortener';
 
 const handler = nextConnect();
 handler.use(middleware);
-handler.get( (req, res) => {
+handler.get("/:url", (req, res) => {
+    Shortener.find({path: req.param.url})
+    .then(response => location.href(response.url))
+    .catch(error => res.status(503).json({message: String(error),}))
+})
+handler.get("/", (req, res) => {
     return res.status(200)
     .json({
         status: 'OK',

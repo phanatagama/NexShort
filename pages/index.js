@@ -1,21 +1,13 @@
-import Head from 'next/head'
-import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
-import Layout from 'components/Layout.js'
-import InputBar from 'components/InputBar.js'
-import TodoState from 'components/context/TodoState.js'
+import nextConnect from 'next-connect';
+import Home from 'pages/home';
 
-export default function Home() {
-  
-  return (
-    <TodoState>
-      <div className="text-center">
-        <Layout>
-          <div className="flex flex-col items-center justify-center">
-            <InputBar/>
-          </div>
-        </Layout>
-      </div>
-    </TodoState>
-  )
-}
+const handler = nextConnect();
+
+handler.get("/", (req,res) => {
+    return Home
+})
+// handler.get("/:path", (req,res) => {
+//     return Home
+// })
+
+export default handler

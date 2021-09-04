@@ -37,7 +37,7 @@ const TodoState = ({ children }) => {
   const getURL = async () => {
     try {
       const shortlink = await fetch(
-        "https://jsonplaceholder.typicode.com/todos?_limit=5"
+        `${process.env.BASE_URL}/api/v1`
       )
       const toJSON = await shortlink.json()
 
@@ -56,7 +56,7 @@ const TodoState = ({ children }) => {
     }
 
     try {
-      const shortlink = await fetch("https://localhost:3000/api", {
+      const shortlink = await fetch(`${process.env.BASE_URL}/api/v1`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -66,7 +66,7 @@ const TodoState = ({ children }) => {
       const toJSON = await shortlink.json()
 
       dispatch({ type: CLEAR_URL })
-      dispatch({ type: CREATE_URL, payload: toJSON })
+      dispatch({ type: CREATE_URL, payload: toJSON.data[0] })
     } catch (err) {
       console.error(err.message)
     }
