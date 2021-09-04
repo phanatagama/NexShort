@@ -7,6 +7,8 @@ function InputBar() {
     const onCreateShorlink = (e) => {
         e.preventDefault();
         createURL(URL);
+        console.log('debug 2');
+        console.log(isSuccess);
     }
     return (
         <>
