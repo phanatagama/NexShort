@@ -4,6 +4,7 @@ const Shortener = require('./model/shortener');
 
 export default function handler(req, res) {
     if (req.method ==='POST') {
+        res.send(req.body);
         Shortener.insertMany(req.body, (error, result) => {
             if (!error) {
                 return res.status(201)
@@ -20,5 +21,12 @@ export default function handler(req, res) {
                 data: req.body,
             })
         })
+    }
+    if (req.method ==='GET') {
+        return res.status(200)
+        .json({
+            status: 'OK',
+            message: 'Successfully',
+        });
     }
 }
