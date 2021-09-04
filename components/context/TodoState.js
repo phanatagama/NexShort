@@ -67,7 +67,7 @@ const TodoState = ({ children }) => {
       })
       const toJSON = await shortlink.json()
 
-      dispatch({ type: CLEAR_URL })
+      dispatch({ type: CLEAR_URL, payload: '' })
       dispatch({ type: CREATE_URL, payload: toJSON.data[0] })
       console.log(toJSON.data[0]);
       // console.log(shortlink)
