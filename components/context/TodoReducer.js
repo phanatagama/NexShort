@@ -5,7 +5,7 @@ import {
     CREATE_URL,
     DELETE_URL,
     CLEAR_URL
-  } from "./TodoTypes"
+  } from "components/context/TodoTypes"
   
   export default (state, { type, payload }) => {
     switch (type) {

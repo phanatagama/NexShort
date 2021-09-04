@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
-import TodoContext from "/context/TodoContext";
+import TodoContext from "components/context/TodoContext";
 
 export default function ResultBar() {
     const { shortlink } = useContext(TodoContext)

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import ResultBar from '/resultBar'
-import TodoContext from '/context/TodoContext';
+import ResultBar from 'components/resultBar'
+import TodoContext from 'components/context/TodoContext';
 
 function InputBar() {
     const { URL, setURL, createURL, isSuccess } = useContext(TodoContext)
