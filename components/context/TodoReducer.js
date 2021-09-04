@@ -1,21 +1,21 @@
 // Dont Forget import the types
 import {
     SET_URL,
-    GET_URL,
+    // GET_URL,
     CREATE_URL,
-    DELETE_URL,
+    // DELETE_URL,
     CLEAR_URL
   } from "components/context/TodoTypes"
   
   export default (state, { type, payload }) => {
     switch (type) {
       // Get all todos
-      case GET_URL:
-        return {
-          ...state,
-          // loading: false,
-          shortlink: payload
-        }
+      // case GET_URL:
+      //   return {
+      //     ...state,
+      //     // loading: false,
+      //     shortlink: payload
+      //   }
       // Set URL for form
       case SET_URL:
         return {
@@ -36,11 +36,11 @@ import {
           URL: ""
         }
       // Delete a URL
-      case DELETE_URL:
-        return {
-          ...state,
-          shortlink: state.shorlink.filter((todo) => todo.id !== payload)
-        }
+      // case DELETE_URL:
+      //   return {
+      //     ...state,
+      //     shortlink: state.shorlink.filter((todo) => todo.id !== payload)
+      //   }
       default:
         return state
     }

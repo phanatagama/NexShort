@@ -9,9 +9,9 @@ import TodoReducer from "components/context/TodoReducer"
 // Bring the types
 import {
   SET_URL,
-  GET_URL,
+  // GET_URL,
   CREATE_URL,
-  DELETE_URL,
+  // DELETE_URL,
   CLEAR_URL
 } from "components/context/TodoTypes"
 
@@ -34,18 +34,18 @@ const TodoState = ({ children }) => {
   }
 
   // Get todos
-  const getURL = async () => {
-    try {
-      const shortlink = await fetch(
-        `${process.env.BASE_URL}/api/v1`
-      )
-      const toJSON = await shortlink.json()
+  // const getURL = async () => {
+  //   try {
+  //     const shortlink = await fetch(
+  //       `${process.env.BASE_URL}/api/v1`
+  //     )
+  //     const toJSON = await shortlink.json()
 
-      dispatch({ type: GET_URL, payload: toJSON })
-    } catch (err) {
-      console.error(err.message)
-    }
-  }
+  //     dispatch({ type: GET_URL, payload: toJSON })
+  //   } catch (err) {
+  //     console.error(err.message)
+  //   }
+  // }
 
   // Create todo
   const createURL = async (url) => {
@@ -77,17 +77,17 @@ const TodoState = ({ children }) => {
   }
 
   // Delete Todo
-  const deleteURL = async (id) => {
-    try {
-      await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
-        method: "DELETE"
-      })
+  // const deleteURL = async (id) => {
+  //   try {
+  //     await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+  //       method: "DELETE"
+  //     })
 
-      dispatch({ type: DELETE_URL, payload: id })
-    } catch (err) {
-      console.error(err.message)
-    }
-  }
+  //     dispatch({ type: DELETE_URL, payload: id })
+  //   } catch (err) {
+  //     console.error(err.message)
+  //   }
+  // }
 
   // Destruct the states
   const { shortlink, URL, isSuccess } = state
@@ -102,10 +102,8 @@ const TodoState = ({ children }) => {
         shortlink,
         URL,
         isSuccess,
-        getURL,
         setURL,
-        createURL,
-        deleteURL
+        createURL
       }}
     >
       {children}
