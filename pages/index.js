@@ -1,5 +1,5 @@
 import nextConnect from 'next-connect';
-import Home from 'pages/home';
+import Home from './home';
 
 const handler = nextConnect();
 
