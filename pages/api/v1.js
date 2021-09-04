@@ -1,6 +1,7 @@
 // MongoDB CONNECTION
 // import connectDB from './utils/db';
 import mongoose from 'mongoose';
+import nextConnect from 'next-connect';
 
 const connectDB = handler => async (req, res) => {
     if (mongoose.connections[0].readyState) {
@@ -35,8 +36,9 @@ function test(req, res) {
         })
     }
 }
-
-export default test
+const middleware = nextConnect();
+middleware.use(connectDB(test));
+export default middleware
 // export default function handler(req, res) {
 //     res.send('lol');
 //     if (req.method ==='POST') {
