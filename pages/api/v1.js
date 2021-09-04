@@ -6,7 +6,7 @@ const connectDB = handler => async (req, res) => {
       return handler(req, res);
     }
     // Use new db connection
-    await mongoose.connect(process.env.MONGODB_URL, {
+    await mongoose.connect("mongodb+srv://heroku:123@cluster0.bw65i.mongodb.net/shortLink?retryWrites=true&w=majority", {
       useUnifiedTopology: true,
       useFindAndModify: false,
       useCreateIndex: true,
