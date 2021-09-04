@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import ResultBar from 'components/resultBar'
+import ResultBar from 'components/ResultBar'
 import TodoContext from 'components/context/TodoContext';
 
 function InputBar() {
