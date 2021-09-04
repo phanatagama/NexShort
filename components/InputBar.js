@@ -3,7 +3,7 @@ import ResultBar from 'components/ResultBar'
 import TodoContext from 'components/context/TodoContext';
 
 function InputBar() {
-    const { URL, setURL, createURL } = useContext(TodoContext)
+    const { URL, setURL, createURL, isSuccess } = useContext(TodoContext)
     const onCreateShorlink = async (e) => {
         e.preventDefault();
         await createURL(URL);
