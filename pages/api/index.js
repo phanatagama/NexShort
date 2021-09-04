@@ -1,6 +1,6 @@
 // MongoDB CONNECTION
-require('./utils/db');
-const Shortener = require('./model/shortener');
+require('pages/api/utils/db');
+const Shortener = require('pages/api/model/shortener');
 
 export default function handler(req, res) {
     if (req.method ==='POST') {
