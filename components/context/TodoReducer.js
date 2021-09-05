@@ -27,7 +27,7 @@ import {
         return {
           ...state,
           isSuccess: true,
-          shortlink: [payload, ...state.shorlink]
+          shortlink: [...state.shortlink, payload]
         }
       // Clear URL after create
       case CLEAR_URL:
@@ -35,6 +35,7 @@ import {
           ...state,
           URL: ""
         }
+        break
       // Delete a URL
       // case DELETE_URL:
       //   return {

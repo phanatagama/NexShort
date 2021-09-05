@@ -20,7 +20,7 @@ const TodoState = ({ children }) => {
   const initialState = {
     shortlink: [],
     URL: "",
-    isSuccess: false
+    isSuccess: false,
   }
 
   // Dispatch the reducer
@@ -66,11 +66,9 @@ const TodoState = ({ children }) => {
         body: JSON.stringify(newURL)
       })
       const toJSON = await shortlink.json()
-
+      const data = toJSON.data[0]
       dispatch({ type: CLEAR_URL, payload: '' })
-      dispatch({ type: CREATE_URL, payload: toJSON.data[0] })
-      console.log(toJSON.data[0]);
-      // console.log(shortlink)
+      dispatch({ type: CREATE_URL, payload: data })
     } catch (err) {
       console.error(err.message)
     }
