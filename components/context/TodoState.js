@@ -56,7 +56,7 @@ const TodoState = ({ children }) => {
     }
 
     try {
-      const shortlink = await fetch(`${process.env.BASE_URL}/api/v1`, {
+      const shortlink = await fetch(`${process.env.BASE_URL}/api`, {
         method: "POST",
         headers: {
           'Access-Control-Allow-Origin': '*',
