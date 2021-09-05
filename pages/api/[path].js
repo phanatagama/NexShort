@@ -34,7 +34,7 @@ handler.get('/api/v1', (req, res) => {
 })
 handler.get("/api/:path", async (req, res) => {
     await Shortener.findOne({path: req.params.path})
-    .then(response => window.location.replace(response.url))
+    .then(response => res.redirect(response.url))
     .catch(error => res.status(503).json({message: String(error),}))
 })
 
