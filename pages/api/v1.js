@@ -44,8 +44,10 @@ handler.post(async (req, res) => {
       });
   })
 })
-handler.get("/:url", (req, res) => {
-    Shortener.find({path: req.param.url})
+handler.get("/:url", async (req, res) => {
+    console.log(req.param.url)
+    console.log(req.param('url'))
+    await Shortener.find({path: req.param.url})
     .then(response => location.href(response.url))
     .catch(error => res.status(503).json({message: String(error),}))
 })
