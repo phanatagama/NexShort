@@ -1,7 +1,9 @@
 import middleware from 'pages/api/utils/db';
 import nextConnect from 'next-connect';
+import { useHistory } from 'react'
 const cors = require('cors');
 import Shortener from 'pages/api/model/shortener';
+
 
 const handler = nextConnect({ attachParams: true });
 handler.use(middleware);
@@ -33,9 +35,16 @@ handler.get('/api/v1', (req, res) => {
     })
 })
 handler.get("/api/:path", async (req, res) => {
-    await Shortener.findOne({path: req.params.path})
-    .then(response => window.location.replace(response.url))
-    .catch(error => res.status(503).json({message: String(error),}))
+    try {
+        const response = await Shortener.findOne({path: req.params.path})
+        return res.redirect(response.url)
+    } catch (error) {
+        return res.status(404)
+        .json({
+            status: 'NOT FOUND',
+            message: 'URL not valid'
+        })    
+    }
 })
 
 export default handler
