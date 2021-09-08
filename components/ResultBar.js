@@ -11,9 +11,9 @@ export default function ResultBar() {
         navigator.clipboard.writeText(process.env.BASE_URL+"/api/"+path);
     }
     return (
-        <div className="w-4/5 flex">
-            <input className="my-8 p-2 text-xl font-bold w-4/5 focus:outline-none focus:ring focus:border-blue-300" type="text" placeholder="https://example.com" value={process.env.BASE_URL+"/api/"+shortlink[shortlink.length-1].path}/>
-            <button onClick={onCopy} className="my-8 p-2 bg-blue-500 rounded w-1/5 text-white transform hover:scale-110 transition ease-in-out duration-700">
+        <div className="w-4/5 flex flex-col md:flex-row">
+            <input className="mt-8 p-2 text-xl font-bold md:w-4/5 focus:outline-none focus:ring focus:border-blue-300" type="text" placeholder="https://example.com" value={process.env.BASE_URL+"/api/"+shortlink[shortlink.length-1].path}/>
+            <button onClick={onCopy} className="my-8 p-2 bg-blue-500 rounded md:w-1/5 text-white transform hover:scale-110 transition ease-in-out duration-700">
                 <FontAwesomeIcon icon={faClipboard} /> Copy
             </button>
         </div>
