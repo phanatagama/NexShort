@@ -20,6 +20,7 @@ import {
       case SET_URL:
         return {
           ...state,
+          isSuccess: false,
           URL: payload
         }
       // Create a new URL

@@ -9,7 +9,7 @@ export default function Home() {
   
   return (
     <TodoState>
-      <div className="text-center">
+      <div className="text-white bg-gray-800 h-screen">
         <Layout>
           <div className="flex flex-col items-center justify-center">
             <InputBar/>

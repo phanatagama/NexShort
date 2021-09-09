@@ -1,6 +1,5 @@
 import middleware from 'pages/api/utils/db';
 import nextConnect from 'next-connect';
-import { useHistory } from 'react'
 const cors = require('cors');
 import Shortener from 'pages/api/model/shortener';
 
