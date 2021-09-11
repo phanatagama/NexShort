@@ -24,7 +24,6 @@ function InputBar() {
     })
     const [loading, setLoading] = useState('');
     const onCreateShorlink = async (value) => {
-        // e.preventDefault();
         setLoading(<p className="bg-green-200 text-green-500 font-black p-3 rounded ring ring-green-200 ring-opacity-50">Please wait...</p>);
         const url = (value.url.startsWith('https://')) || value.url.startsWith('http://') ? value.url : `https://${value.url}`
         setURL(url);
@@ -37,7 +36,7 @@ function InputBar() {
                 <button className="my-8 p-2 bg-blue-500 rounded w-1/4 md:w-1/5 text-white transform hover:scale-110 transition ease-in-out duration-700">Short</button>
             </form>
                 {formik.errors.url && formik.touched.url && (
-                        <p>{formik.errors.url}</p>
+                        <p className="text-red-500">{formik.errors.url}</p>
                     )}
             {isSuccess ? <ResultBar/> : loading }
         </>
