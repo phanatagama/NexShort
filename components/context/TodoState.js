@@ -11,7 +11,7 @@ import {
   SET_URL,
   // GET_URL,
   CREATE_URL,
-  // DELETE_URL,
+  DELETE_URL,
   CLEAR_URL
 } from "components/context/TodoTypes"
 
@@ -75,17 +75,17 @@ const TodoState = ({ children }) => {
   }
 
   // Delete Todo
-  // const deleteURL = async (id) => {
-  //   try {
-  //     await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
-  //       method: "DELETE"
-  //     })
+  const deleteURL = async (id) => {
+    try {
+      await fetch(`${process.env.BASE_URL}/api/v1/${id}`, {
+        method: "DELETE"
+      })
 
-  //     dispatch({ type: DELETE_URL, payload: id })
-  //   } catch (err) {
-  //     console.error(err.message)
-  //   }
-  // }
+      dispatch({ type: DELETE_URL, payload: id })
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
 
   // Destruct the states
   const { shortlink, URL, isSuccess } = state
@@ -101,7 +101,8 @@ const TodoState = ({ children }) => {
         URL,
         isSuccess,
         setURL,
-        createURL
+        createURL,
+        deleteURL
       }}
     >
       {children}

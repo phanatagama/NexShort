@@ -38,11 +38,11 @@ import {
         }
         break
       // Delete a URL
-      // case DELETE_URL:
-      //   return {
-      //     ...state,
-      //     shortlink: state.shorlink.filter((todo) => todo.id !== payload)
-      //   }
+      case DELETE_URL:
+        return {
+          ...state,
+          shortlink: state.shorlink.filter((todo) => todo.id !== payload)
+        }
       default:
         return state
     }
