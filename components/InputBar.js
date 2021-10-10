@@ -14,7 +14,7 @@ function InputBar() {
             url: Yup.string()
               .min(4, "Mininum 4 characters")
               .matches(
-                /^((https|http):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+                /^((https|http):\/\/)?(www.)?[a-z0-9-]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
                 'Enter correct url!')    
               .required("Required!"),
           }),
