@@ -8,7 +8,7 @@ export default function RedirectPage() {
     const [redirectUrl, setRedirectUrl] = useState(null);
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(process.env.API_URL+url);
+            const response = await fetch(process.env.NEXT_PUBLIC_API_URL +url);
             const data = await response.json();
             console.log(data);
             if (response.ok) {
@@ -17,7 +17,7 @@ export default function RedirectPage() {
                 window.location.href = data.url;
             } else {
                 console.log('Failed');
-                window.location.href = process.env.BASE_URL+ '/_error';
+                window.location.href = process.env.NEXT_PUBLIC_BASE_URL + '/_error';
             }
         }
         if (url !== null) {

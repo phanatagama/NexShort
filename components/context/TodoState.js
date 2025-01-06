@@ -56,7 +56,7 @@ const TodoState = ({ children }) => {
     }
 
     try {
-      const shortlink = await fetch(`${process.env.BASE_URL}/api/v1`, {
+      const shortlink = await fetch(`/api/v1`, {
         method: "POST",
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -77,7 +77,7 @@ const TodoState = ({ children }) => {
   // Delete Todo
   const deleteURL = async (id) => {
     try {
-      await fetch(`${process.env.BASE_URL}/api/v1/${id}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/${id}`, {
         method: "DELETE"
       })
 
