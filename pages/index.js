@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Layout from 'components/Layout.js'
 import InputBar from 'components/InputBar.js'
 import TodoState from 'components/context/TodoState.js'
+import Footer from 'components/Footer'
 
 export default function Home() {
 
@@ -24,6 +25,7 @@ export default function Home() {
           <InputBar />
         </Layout>
       </div>
+      {/* <Footer /> */}
     </TodoState>
   )
 }

@@ -28,18 +28,16 @@ export default function RedirectPage() {
     }, [url])
     return (
         <>
-            <div className="flex justify-center items-center h-screen bg-[url('/background.jpg')] bg-cover bg-center relative">
-                <div className="absolute inset-0 z-10 max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-75" ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-red-500 to-transparent opacity-25"></div>
+            <div className="flex flex-col h-screen bg-[url('/background.jpg')] bg-cover bg-center ">
+                <div className="w-full max-w-7xl mx-auto px-4 sm:px-6  z-10">
                     <Header />
                 </div>
-
-                <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-75"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-red-500 to-transparent opacity-25"></div>
-                <div className="relative flex flex-col justify-center h-full">
-
-                    <h1 className='font-bold text-xl text-white'>Redirect to {redirectUrl}</h1>
+                <h1 className='font-bold text-xl text-white m-auto z-10'>Redirect to {redirectUrl}</h1>
+                <div className='z-10'>
+                    <Footer />
                 </div>
-                <Footer />
             </div>
         </>
     )
