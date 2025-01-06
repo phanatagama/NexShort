@@ -9,7 +9,8 @@ handler.use(middleware);
 handler.use(cors({methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],}));
 
 handler.post("/api/v1", async (req, res) => {
-    // console.log('wadaidah');
+    console.log(process.env.NEXT_PUBLIC_API_URL);
+    console.log(process.env.NEXT_PUBLIC_BASE_URL);
     await Shortener.insertMany(req.body, (error, result) => {
         if (!error) {
             return res.status(200)

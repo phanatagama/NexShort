@@ -32,7 +32,7 @@ function InputBar() {
         await createURL(sanitize_url);
     }
     return (
-        <div className="my-auto mx-48  ">
+        <div className="mt-16 mx-48">
             <form className="flex" onSubmit={formik.handleSubmit}>
                 <input onChange={ formik.handleChange} name="url" className="my-8 p-2 text-xl text-gray-800 font-bold w-3/4 md:w-4/5 focus:outline-none focus:ring focus:border-blue-300" type="text" placeholder="https://example.com" value={formik.values.url}/>
                 <button className="my-8 p-2 bg-red-500 rounded w-1/4 md:w-1/5 text-white transform hover:scale-110 transition ease-in-out duration-700">Short</button>
