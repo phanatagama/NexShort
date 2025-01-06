@@ -6,14 +6,18 @@ import InputBar from 'components/InputBar.js'
 import TodoState from 'components/context/TodoState.js'
 
 export default function Home() {
-  
+
   return (
     <TodoState>
-      <div className="text-white bg-gray-800 h-screen">
-        <Layout>
-          <div className="flex flex-col items-center justify-center">
-            <InputBar/>
-          </div>
+      <Head>
+        <title>Shorten URL</title>
+        <meta property="og:title" content="A Simple shortener url" key="title" />
+      </Head>
+      <div className="text-white h-screen bg-[url('/background.jpg')] bg-cover bg-center">
+        <Layout className="flex flex-col h-full">
+
+          <InputBar />
+
         </Layout>
       </div>
     </TodoState>

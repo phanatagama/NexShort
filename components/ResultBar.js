@@ -9,7 +9,7 @@ export default function ResultBar() {
     const onCopy = (e) => {
         e.preventDefault();
         let path = shortlink[shortlink.length-1].path;
-        navigator.clipboard.writeText(process.env.BASE_URL+"/api/"+path);
+        navigator.clipboard.writeText(process.env.BASE_URL+"/"+path);
         const interval = setInterval(() => {
             setIsCopy(true)
             setTimeout(() => {
@@ -20,8 +20,8 @@ export default function ResultBar() {
     }
     return (
         <>
-        <div className="w-4/5 flex flex-col md:flex-row">
-            <input className="mt-8 md:my-8 p-2 text-xl text-gray-800 font-bold md:w-4/5 focus:outline-none focus:ring focus:border-blue-300" type="text" placeholder="https://example.com" value={process.env.BASE_URL+"/api/"+shortlink[shortlink.length-1].path}/>
+        <div className="w-full flex flex-col md:flex-row">
+            <input className="mt-8 md:my-8 p-2 text-xl text-gray-800 font-bold md:w-4/5 focus:outline-none focus:ring focus:border-blue-300" type="text" placeholder="https://example.com" value={process.env.BASE_URL+"/"+shortlink[shortlink.length-1].path}/>
             <button onClick={onCopy} className="my-8 p-2 bg-blue-500 rounded md:w-1/5 text-white transform hover:scale-110 transition ease-in-out duration-700">
                 <FontAwesomeIcon icon={faClipboard} /> Copy
             </button>

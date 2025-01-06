@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Shortener = mongoose.model('shortener',{
+const Shortener = mongoose.models.shortener || mongoose.model('shortener',{
     url: {
         type: String,
         required: true,
@@ -11,4 +11,4 @@ const Shortener = mongoose.model('shortener',{
     },
 });
 
-module.exports = Shortener;
+module.exports =  Shortener;
