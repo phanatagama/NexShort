@@ -1,7 +1,9 @@
-import middleware from 'pages/api/utils/db';
+import { NextApiRequest, NextApiResponse } from 'next';
+import middleware from '../utils/db';
 import nextConnect from 'next-connect';
 const cors = require('cors');
-import Shortener from 'pages/api/model/shortener';
+// import Shortener from 'pages/api/model/shortener';
+const Shortener = require('../model/shortener');
 import { notFound } from 'next/navigation';
 
 
@@ -48,31 +50,32 @@ handler.use(cors({methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],}));
 //         })
 //       });
 //   })
-handler.get("/api/v1/:path", async (req, res) => {
-    console.log(`path: ${req.params.path}`)
+handler.get(
+  "/api/v1/:path",
+  async (req: NextApiRequest, res: NextApiResponse) => {
+    console.log(`path: ${req.query.path}`);
     try {
-        const response = await Shortener.findOne({ path: req.params.path })
-        // return res.redirect(response.url)
-        if (!response) {
-            notFound()
-        }
-        return res.status(200).json(response)
+      const response = await Shortener.findOne({ path: req.query.path });
+      // return res.redirect(response.url)
+      if (!response) {
+        notFound();
+      }
+      return res.status(200).json(response);
     } catch (error) {
-        return res.status(404)
-            .json({
-                status: 'NOT FOUND',
-                message: 'URL not valid'
-            })
+      return res.status(404).json({
+        status: "NOT FOUND",
+        message: "URL not valid",
+      });
     }
-}) 
-handler.get('/api/v1', (req, res) => {
-    console.log(`path v1: ${req.params.path}`)
-    return res.status(200)
-    .json({
-        status: 'OK',
-        message: 'Successfully',
-    })
-})
+  }
+); 
+handler.get("/api/v1", (req: NextApiRequest, res: NextApiResponse) => {
+  console.log(`path v1: ${req.query.path}`);
+  return res.status(200).json({
+    status: "OK",
+    message: "Successfully",
+  });
+});
 
 
 export default handler

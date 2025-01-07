@@ -1,10 +1,10 @@
-import React, { useReducer } from "react"
+import { useReducer } from "react"
 
 // Bring the context
-import TodoContext from "components/context/TodoContext"
+import TodoContext from "./TodoContext"
 
 // Bring the reducer
-import TodoReducer from "components/context/TodoReducer"
+import TodoReducer from "./TodoReducer"
 
 // Bring the types
 import {
@@ -13,7 +13,7 @@ import {
   CREATE_URL,
   DELETE_URL,
   CLEAR_URL
-} from "components/context/TodoTypes"
+} from "./TodoTypes"
 
 const TodoState = ({ children }) => {
   // Define our state

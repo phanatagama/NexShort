@@ -1,5 +1,5 @@
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Header from './Header';
+import Footer from './Footer';
 
 const Layout = ({className, children }) => {
   return (
@@ -7,7 +7,7 @@ const Layout = ({className, children }) => {
       <Header />
       {children}
       {/* give spacer so footer i will be fixed in the bottom  */}
-      <div className='my-auto'> loh</div>
+      <div className='my-auto'></div>
       <Footer />
     </div>
   );

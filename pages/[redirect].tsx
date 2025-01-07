@@ -1,6 +1,6 @@
 
-import Footer from 'components/Footer';
-import Header from 'components/Header';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 

@@ -5,7 +5,7 @@ import {
   CREATE_URL,
   // DELETE_URL,
   CLEAR_URL
-} from "components/context/TodoTypes"
+} from "./TodoTypes"
 
 const TodoReducer = (state, { type, payload }) => {
   switch (type) {
@@ -38,11 +38,11 @@ const TodoReducer = (state, { type, payload }) => {
       }
       break
     // Delete a URL
-    case DELETE_URL:
-      return {
-        ...state,
-        shortlink: state.shorlink.filter((todo) => todo.id !== payload)
-      }
+    // case DELETE_URL:
+    //   return {
+    //     ...state,
+    //     shortlink: state.shorlink.filter((todo) => todo.id !== payload)
+    //   }
     default:
       return state
   }

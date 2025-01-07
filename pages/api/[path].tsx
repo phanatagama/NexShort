@@ -1,14 +1,16 @@
-import middleware from 'pages/api/utils/db';
+import middleware from './utils/db';
 import nextConnect from 'next-connect';
 const cors = require('cors');
-import Shortener from 'pages/api/model/shortener';
+// import Shortener from 'pages/api/model/shortener';
+const Shortener = require('./model/shortener');
+import { NextApiRequest, NextApiResponse } from 'next';
 
 
 const handler = nextConnect({ attachParams: true });
 handler.use(middleware);
 handler.use(cors({methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],}));
 
-handler.post("/api/v1", async (req, res) => {
+handler.post("/api/v1", async (req: NextApiRequest, res: NextApiResponse) => {
     console.log(process.env.NEXT_PUBLIC_API_URL);
     console.log(process.env.NEXT_PUBLIC_BASE_URL);
     await Shortener.insertMany(req.body, (error, result) => {
@@ -28,26 +30,30 @@ handler.post("/api/v1", async (req, res) => {
         });
     })
   })
-handler.delete("/api/v1/:id", async (req, res) => {
-    await Shortener.deleteOne({_id: req.param('id')})
-    .then((result) =>{
-        if(result.deletedCount > 0){
+handler.delete(
+  "/api/v1/:id",
+  async (req: NextApiRequest, res: NextApiResponse) => {
+    await Shortener.deleteOne({ _id: req.query.id })
+      .then((result) => {
+        if (result.deletedCount > 0) {
           return res.status(200).json({
-                    status: 'Delete',
-                    message: 'Data has been deleted',
-                });
+            status: "Delete",
+            message: "Data has been deleted",
+          });
         }
         return res.status(304).json({
-            status: 'Not Modified',
-            message: 'Failed to delete',
-        })
-      }).catch((error) => {
+          status: "Not Modified",
+          message: "Failed to delete",
+        });
+      })
+      .catch((error) => {
         return res.status(503).json({
-            status: 'Not Modified',
-            message: 'Failed to delete',
-        })
+          status: "Not Modified",
+          message: "Failed to delete",
+        });
       });
-  })
+  }
+);
 // handler.get("/api/v1/:path", async (req, res) => {
 //     console.log(`path: ${req.params.path}`)
 //     try {
